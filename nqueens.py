@@ -1,7 +1,7 @@
-matrix = [[0 for i in range(100)]for i in range(100)]
-row = [0 for i in range(100)]
-forwardDiagonal = [0 for i in range(199)]
-backwardDiagonal = [0 for i in range(199)]
+matrix = [[0 for i in range(101)]for i in range(101)]
+row = [0 for i in range(101)]
+forwardDiagonal = [0 for i in range(201)]
+backwardDiagonal = [0 for i in range(201)]
 
 def checkRow(row,n):
 	for i in range(1,n+1):
@@ -61,6 +61,14 @@ def nqueens_branc_bound(n,col):
 
 if __name__ == "__main__":
 	n = int(input("Enter n(greater than 3) : "))
-	nqueens_branc_bound(n,1)
-	for i in range(1,n+1):
+	nqueens_branc_bound(n, 1)
+	print("Using Branch and Bound:")
+	for i in range(1, n+1):
+		print(matrix[i][1:n+1])
+	for i in range(1, n+1) :
+		for j in range(1, n+1) :
+			matrix[i][j] = 0
+	nqueens(n, 1)
+	print("Using Backtracking:")
+	for i in range(1, n+1):
 		print(matrix[i][1:n+1])
